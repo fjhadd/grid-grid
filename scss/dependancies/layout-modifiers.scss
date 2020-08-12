@@ -1,76 +1,76 @@
 //Layout Modifiers
 $sides: -top, -right, -bottom, -left;
 
-.mds-no-padding {
+.grid-no-padding {
     padding: 0 !important;
 }
-.mds-no-margin {
+.grid-no-margin {
     margin: 0 !important;
 }
 //Padding
-.mds-paddingXS  {padding: $spacingXS;}
-.mds-paddingS   {padding: $spacingS;}
-.mds-padding    {padding: $spacing;}
-.mds-paddingL   {padding: $spacingL;}
-.mds-paddingXL  {padding: $spacingXL;}
-.mds-paddingXXL {padding: $spacingXXL;}
+.grid-paddingXS  {padding: $spacingXS;}
+.grid-paddingS   {padding: $spacingS;}
+.grid-padding    {padding: $spacing;}
+.grid-paddingL   {padding: $spacingL;}
+.grid-paddingXL  {padding: $spacingXL;}
+.grid-paddingXXL {padding: $spacingXXL;}
 
 //Maring
-.mds-marginXS   {margin: $spacingXS;}
-.mds-marginS    {margin: $spacingS;}
-.mds-margin     {margin: $spacing;}
-.mds-marginL    {margin: $spacingL;}
-.mds-marginXL   {margin: $spacingXL;}
-.mds-marginXXL  {margin: $spacingXXL;}
+.grid-marginXS   {margin: $spacingXS;}
+.grid-marginS    {margin: $spacingS;}
+.grid-margin     {margin: $spacing;}
+.grid-marginL    {margin: $spacingL;}
+.grid-marginXL   {margin: $spacingXL;}
+.grid-marginXXL  {margin: $spacingXXL;}
 
 //@each $sides
 @each $side in $sides { 
-    .mds-no-margin#{$side} {
+    .grid-no-margin#{$side} {
         margin#{$side}: 0 !important;
     }
-    .mds-no-padding#{$side} {
+    .grid-no-padding#{$side} {
         padding#{$side}: 0 !important;
     }
     //Padding Size for Side
-    .mds-paddingXS#{$side}  {padding#{$side}: $spacingXS;}
-    .mds-paddingS#{$side}   {padding#{$side}: $spacingS;}
-    .mds-padding#{$side}    {padding#{$side}: $spacing;}
-    .mds-paddingL#{$side}   {padding#{$side}: $spacingL;}
-    .mds-paddingXL#{$side}  {padding#{$side}: $spacingXL;}
-    .mds-paddingXXL#{$side} {padding#{$side}: $spacingXXL;}
+    .grid-paddingXS#{$side}  {padding#{$side}: $spacingXS;}
+    .grid-paddingS#{$side}   {padding#{$side}: $spacingS;}
+    .grid-padding#{$side}    {padding#{$side}: $spacing;}
+    .grid-paddingL#{$side}   {padding#{$side}: $spacingL;}
+    .grid-paddingXL#{$side}  {padding#{$side}: $spacingXL;}
+    .grid-paddingXXL#{$side} {padding#{$side}: $spacingXXL;}
 
     //Margin Size for Side
-    .mds-marginXS#{$side}   {margin#{$side}: $spacingXS;}
-    .mds-marginS#{$side}    {margin#{$side}: $spacingS;}
-    .mds-margin#{$side}     {margin#{$side}: $spacing;}
-    .mds-marginL#{$side}    {margin#{$side}: $spacingL;}
-    .mds-marginXL#{$side}   {margin#{$side}: $spacingXL;}
-    .mds-marginXXL#{$side}  {margin#{$side}: $spacingXXL;}
+    .grid-marginXS#{$side}   {margin#{$side}: $spacingXS;}
+    .grid-marginS#{$side}    {margin#{$side}: $spacingS;}
+    .grid-margin#{$side}     {margin#{$side}: $spacing;}
+    .grid-marginL#{$side}    {margin#{$side}: $spacingL;}
+    .grid-marginXL#{$side}   {margin#{$side}: $spacingXL;}
+    .grid-marginXXL#{$side}  {margin#{$side}: $spacingXXL;}
 }
 @each $size in $sizes { 
     @include mq($size) {
         @each $side in $sides { 
-            .mds-no-margin#{$side}-for-#{$size} {
+            .grid-no-margin#{$side}-for-#{$size} {
                 margin#{$side}: 0 !important;
             }
-            .mds-no-padding#{$side}-for-#{$size} {
+            .grid-no-padding#{$side}-for-#{$size} {
                 padding#{$side}: 0 !important;
             }
             //Padding Size for Side
-            .mds-paddingXS#{$side}-for-#{$size}  {padding#{$side}: $spacingXS;}
-            .mds-paddingS#{$side}-for-#{$size}   {padding#{$side}: $spacingS;}
-            .mds-padding#{$side}-for-#{$size}    {padding#{$side}: $spacing;}
-            .mds-paddingL#{$side}-for-#{$size}   {padding#{$side}: $spacingL;}
-            .mds-paddingXL#{$side}-for-#{$size}  {padding#{$side}: $spacingXL;}
-            .mds-paddingXXL#{$side}-for-#{$size} {padding#{$side}: $spacingXXL;}
+            .grid-paddingXS#{$side}-for-#{$size}  {padding#{$side}: $spacingXS;}
+            .grid-paddingS#{$side}-for-#{$size}   {padding#{$side}: $spacingS;}
+            .grid-padding#{$side}-for-#{$size}    {padding#{$side}: $spacing;}
+            .grid-paddingL#{$side}-for-#{$size}   {padding#{$side}: $spacingL;}
+            .grid-paddingXL#{$side}-for-#{$size}  {padding#{$side}: $spacingXL;}
+            .grid-paddingXXL#{$side}-for-#{$size} {padding#{$side}: $spacingXXL;}
 
             //Margin Size for Side
-            .mds-marginXS#{$side}-for-#{$size}   {margin#{$side}: $spacingXS;}
-            .mds-marginS#{$side}-for-#{$size}    {margin#{$side}: $spacingS;}
-            .mds-margin#{$side}-for-#{$size}     {margin#{$side}: $spacing;}
-            .mds-marginL#{$side}-for-#{$size}    {margin#{$side}: $spacingL;}
-            .mds-marginXL#{$side}-for-#{$size}   {margin#{$side}: $spacingXL;}
-            .mds-marginXXL#{$side}-for-#{$size}  {margin#{$side}: $spacingXXL;}
+            .grid-marginXS#{$side}-for-#{$size}   {margin#{$side}: $spacingXS;}
+            .grid-marginS#{$side}-for-#{$size}    {margin#{$side}: $spacingS;}
+            .grid-margin#{$side}-for-#{$size}     {margin#{$side}: $spacing;}
+            .grid-marginL#{$side}-for-#{$size}    {margin#{$side}: $spacingL;}
+            .grid-marginXL#{$side}-for-#{$size}   {margin#{$side}: $spacingXL;}
+            .grid-marginXXL#{$side}-for-#{$size}  {margin#{$side}: $spacingXXL;}
         }
     }
 }
@@ -78,41 +78,41 @@ $sides: -top, -right, -bottom, -left;
 //Radius
 $radiusSides: -top-left, -top-right, -bottom-right, -bottom-left;
 
-.mds-radiusXS{
+.grid-radiusXS{
     border-radius: $radiusXS;
 }
-.mds-radiusS{
+.grid-radiusS{
     border-radius: $radiusS;
 }
-.mds-radius{
+.grid-radius{
     border-radius: $radius;
 }
-.mds-radiusL{
+.grid-radiusL{
     border-radius: $radiusL;
 }
-.mds-radiusXL{
+.grid-radiusXL{
     border-radius: $radiusXL;
 }
-.mds-radiusXXL{
+.grid-radiusXXL{
     border-radius: $radiusXXL;
 }
 @each $radiusSide in $radiusSides {
-    .mds-radiusXS#{$radiusSide}{
+    .grid-radiusXS#{$radiusSide}{
         border#{$radiusSide}-radius: $radiusXS;
     }
-    .mds-radiusS#{$radiusSide}{
+    .grid-radiusS#{$radiusSide}{
         border#{$radiusSide}-radius: $radiusS;
     }
-    .mds-radius#{$radiusSide}{
+    .grid-radius#{$radiusSide}{
         border#{$radiusSide}-radius: $radius;
     }
-    .mds-radiusL#{$radiusSide}{
+    .grid-radiusL#{$radiusSide}{
         border#{$radiusSide}-radius: $radiusL;
     }
-    .mds-radiusXL#{$radiusSide}{
+    .grid-radiusXL#{$radiusSide}{
         border#{$radiusSide}-radius: $radiusXL;
     }
-    .mds-radiusXXL#{$radiusSide}{
+    .grid-radiusXXL#{$radiusSide}{
         border#{$radiusSide}-radius: $radiusXXL;
     }
 }
