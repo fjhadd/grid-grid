@@ -1,0 +1,146 @@
+@import 'mixins';
+// Spacing 
+$spacingXXS: .25rem; //4px
+$spacingXS: .5rem; //8px
+$spacingS: .875rem; //14px
+$spacing: 1.5rem; //24px
+$spacingL: 2rem; //32px
+$spacingXL: 2.25rem; //36px
+$spacingXXL: 3.25rem; //52px
+//Grid Spacing
+$gridGap: $spacing; //24px
+$smallGridGap: $spacingS; //24px
+
+// MDS Media Query Sizes
+$mqxs:575px; //36rem
+$mqsm:768px; //48rem
+$mqmd:1024px; //64rem
+$mqlg:1200px; //75rem
+$mqxl:1440px; //90rem
+$mqxxl:2000px; //90rem
+
+$breakpoints: (
+  xs: $mqxs, //36rem
+  sm: $mqsm, //48rem
+  md: $mqmd, //64rem
+  lg: $mqlg, //75rem
+  xl: $mqxl, //90rem
+  xxl: $mqxxl //125rem
+);
+$sizes: xs, sm, md, lg, xl, xxl;
+
+$mq-xs: 576px; $mq-sm: 768px; $mq-md: 1024px; $mq-lg: 1366px;
+$aligns: auto, normal, stretch, center, start, end, self-start, self-end, baseline, first-baseline, last-baseline;
+.grid {
+    $grid: &;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: $gridGap;
+    // margin-bottom: $gridGap;
+    // grid-template-rows: repeat(6, 1fr);
+    
+    //Mobile Up 12 Columns or Default
+    &_cols > *{
+        grid-column: span 12;
+    }
+    &_col{
+        grid-column: span 12;
+        padding: $spacingXS;
+    }
+
+    //Control Mobile Up from Parent Level or Child Level
+    @for $col from 1 through 12 {
+        &_col-#{$col}, &#{$grid}_cols-#{$col} > * {
+            grid-column: span #{$col};
+        }
+    }
+    
+    //Control the columns size from the child level for Mobile Landscape (XS) Up
+    @each $size in $sizes { 
+        @include mq($size) {
+            @for $col from 1 through 12 {
+                &_col-#{$size}-#{$col}, &#{$grid}_cols-#{$size}-#{$col} > * {
+                    grid-column: span #{$col};
+                }
+            }
+        }
+    }
+
+    //Offsets
+    @each $size in $sizes { 
+        @include mq($size) {
+            @for $col from 1 through 12 {
+                &_col-start-#{$size}-#{$col} {
+                    grid-column-start:#{$col};
+                }
+                &_col-end-#{$size}-#{$col} {
+                    grid-column-end:#{$col + 1};
+                }
+            }
+        }
+    }
+    
+    //Control the columns size from the child level for Mobile Landscape (XS) Up
+    @each $size in $sizes { 
+        @include mq($size) {
+            @for $col from 1 through 12 {
+                &_col-#{$size}-#{$col}, &#{$grid}_cols-#{$size}-#{$col} > * {
+                    grid-column: span #{$col};
+                }
+            }
+        }
+    }
+    
+    //Grid modifiers
+    
+    ///Gap 
+    &--no-gap {
+        grid-gap: 0;
+    }
+    &--small-gap {
+        grid-gap: $smallGridGap;
+        margin-bottom: $smallGridGap;
+    }
+    &--no-row-gap {
+        row-gap: 0;
+    }
+    &--no-col-gap {
+        grid-gap: 0;
+    }
+    ///Order
+    @each $size in $sizes { 
+        @include mq($size) {
+            &_col-#{$size}-first {
+                order: -1;
+            }
+            &_col-#{$size}-last {
+                order: 13;
+            }
+        }
+    }
+    ///Aligment
+    &#{$grid}--align-center {
+        justify-items: center;
+    }
+    &#{$grid}--align-center {
+        justify-items: center;
+    }
+    legacy normal stretch center safe-center unsafe-center start end self-start self-end left right baseline first baseline last baseline
+    &#{$grid}--align-bottom {
+        align-items: baseline;
+    }
+    //Column Vertical Aligment Reference https://yoksel.github.io/grid-cheatsheet/#section-column-align
+    @each $align in $aligns {
+        &_col--v-align-#{$align} {
+            align-self: #{$align};
+        }
+    }
+    //Column Vertical Aligment Reference https://yoksel.github.io/grid-cheatsheet/#section-column-align
+    //$aligns: auto, normal, stretch, center, start, end, self-start, self-end, baseline, first-baseline, last-baseline;
+    @each $align in $aligns {
+        &_col--align-#{$align} {
+            justify-self: #{$align};
+        }
+    }
+    
+}

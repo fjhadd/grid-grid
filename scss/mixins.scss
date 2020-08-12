@@ -1,0 +1,242 @@
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+//MDS Border Mixin
+@mixin borderradius($tl: $radius, $tr: $radius, $bl: $radius,$br: $radius) {
+	@if $tl != 0 {
+		border-top-left-radius: $tl;
+	}
+	@if $tr != 0 {
+		border-top-right-radius: $tr;
+	}
+	@if $br != 0 {
+		border-bottom-right-radius: $br;
+	}
+	@if $bl != 0 {
+		border-bottom-left-radius: $bl;
+	}
+}
+//MDS Position
+@mixin pos($pos, $t, $r, $b, $l, $z: false, $hardware: true) {
+	@if $pos == fixed and $hardware { @include hardware; }
+	@if $pos { position: $pos; }
+	@if $t { top: $t; }
+	@if $r { right: $r; }
+	@if $b { bottom: $b; }
+	@if $l { left: $l; }
+	@if $z { z-index: map_get($zIndex, $z); }
+}
+
+//Pseudo
+	//div::after {
+	//    @include pseudo;
+	//    top: -1rem; left: -1rem;
+	//    width: 1rem; height: 1rem;
+	//}
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+//Responsive Ratio:
+	// div {
+	//     @include responsive-ratio(16,9);
+	// }
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+// antialias for icons
+@mixin antialias {
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Hide from both screenreaders and browsers
+@mixin hidden {
+	display: none;
+	visibility: hidden;
+}
+
+@mixin visible($state: 'block') {
+	display: unquote($state);
+	visibility: visible;
+}
+
+// Hide only visually, but have it available for screenreaders
+@mixin vh($focusable: false) {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	@if $focusable {
+		@include vh-focusable;
+	}
+}
+
+
+// Allow the element to be focusable when navigated to via the keyboard
+@mixin vh-focusable {
+	&:active,
+	&:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible {
+	visibility: hidden;
+}
+
+
+//	Retina images
+//	example:
+//	.element {
+//		@include retina {
+//			background-image: url(../img/background@2x.png);
+//		}
+//	}
+
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	only screen and (-moz-min-device-pixel-ratio: 1.5),
+	only screen and (-o-min-device-pixel-ratio: 3 / 2),
+	only screen and (min-device-pixel-ratio: 1.5),
+	only screen and (min-resolution: 1.5dppx) {
+		@content;
+	}
+}
+
+
+
+//	Responsive ratio
+//	Used for creating scalable elements that maintain the same ratio
+//	example:
+//	.element {
+//		@include responsive-ratio(400, 300);
+//	}
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+	$padding: unquote( ( $y / $x ) * 100 + '%' );
+
+	@if $pseudo {
+		&::before {
+			@include pseudo($pos: relative);
+			width: 100%;
+			padding-top: $padding;
+		}
+	} @else {
+		padding-top: $padding;
+	}
+}
+
+
+
+@mixin antialias {
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin appearance($val: none) {
+	-webkit-appearance: $val;
+	-moz-appearance: $val;
+	appearance: $val;
+}
+
+
+@mixin hardware($backface: true, $perspective: 1000) {
+	@if $backface {
+		backface-visibility: hidden;
+	}
+
+	perspective: $perspective;
+}
+
+
+@mixin selection {
+	::-moz-selection { @content; }
+	::selection { @content; }
+}
+
+@mixin truncate($truncation-boundary) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+@mixin transition-property($property...) {
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    -webkit-transition-property: $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    -webkit-transition-property: $duration;
+    transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    -webkit-transition-timing-function: $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    -webkit-transition-delay: $delay;
+    transition-delay:         $delay;
+}
+
+@mixin transform($transforms) {
+	transform: $transforms;
+}
+@mixin rotate ($deg) { 
+	@include transform(rotate(#{$deg}deg));
+}
