@@ -1,0 +1,95 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fjhadd/grid-grid/css/grid-grid.css">
+
+<div class="container container--Top-overlap">
+    <style>
+    .grid > * {
+        padding: 30px; background-color: rgba(255, 0, 0, 0.144);
+    }
+    </style>
+<section>
+    <h2>Design System Responsive Grid</h2>
+    <div class="grid">
+        <div class="grid_col grid_col-xs-12">12 col / .grid_col-12</div>
+
+        <div class="grid_col grid_col-xs-1">1 col / .grid_col-12 / 1 col / .grid_col-12</div>
+        <div class="grid_col grid_col-xs-11"><p>11 col / .grid_col-11</p></div>
+
+        <div class="grid_col grid_col-xs-2">2 col / .grid_col-2</div>
+        <div class="grid_col grid_col-xs-10">10 col / .grid_col-10</div>
+
+        <div class="grid_col grid_col-xs-3">3 col / .grid_col-3</div>
+        <div class="grid_col grid_col-xs-9">9 col / .grid_col-9</div>
+
+        <div class="grid_col grid_col-xs-4">4 col / .grid_col-4</div>
+        <div class="grid_col grid_col-xs-8">8 col / .grid_col-8</div>
+
+        <div class="grid_col grid_col-xs-5">5 col / .grid_col-5</div>
+        <div class="grid_col grid_col-xs-7">7 col / .grid_col-7</div>
+
+        <div class="grid_col grid_col-xs-6">6 col / .grid_col-6</div>
+        <div class="grid_col grid_col-xs-6">6 col / .grid_col-6</div>
+
+        <div class="grid_col grid_col-xs-7">7 col / .grid_col-7</div>
+        <div class="grid_col grid_col-xs-5">5 col / .grid_col-5</div>
+
+        <div class="grid_col grid_col-xs-8">8 col / .grid_col-8</div>
+        <div class="grid_col grid_col-xs-4">4 col / .grid_col-4</div>
+
+        <div class="grid_col grid_col-xs-9">9 col / .grid_col-9</div>
+        <div class="grid_col grid_col-xs-3">3 col / .grid_col-3</div>
+
+        <div class="grid_col grid_col-xs-10">10 col / .grid_col-10</div>
+        <div class="grid_col grid_col-xs-2">2 col / .grid_col-2</div>
+
+        <div class="grid_col grid_col-xs-11">11 col / .grid_col-11</div>
+        <div class="grid_col grid_col-xs-1">1 col / .grid_col-1</div>
+
+        <div class="grid_col grid_col-xs-6">
+            6 col Parent / .grid_col-6
+            <div class="grid">
+                <div class="grid_col grid_col-xs-6">6 col Nested / .grid_col-6</div>
+                <div class="grid_col grid_col-xs-6">6 col Nested / .grid_col-6</div>
+            </div>
+        </div>
+        <div class="grid_col grid_col-xs-6">
+            6 col
+            <div class="grid">
+                <div class="grid_col grid_col-xs-6">6 col Nested / .grid_col-6</div>
+                <div class="grid_col grid_col-xs-6">6 col Nested / .grid_col-6</div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section>
+    <h2>Parent Grid</h2>
+    <h3>All Children Column Width will be the same</h3>
+    <div class="grid grid_cols-12 grid_cols-sm-4">
+        <div>4 col</div>
+        <div>4 col</div>
+        <div>4 col</div>
+        <div>4 col</div>
+        <div>4 col</div>
+        <div>4 col</div>
+    </div>
+</section>
+
+<section>
+    <h2>Offset</h2>
+    <h3>Will start on 2nd Column and End on 11th column from Tablet Up</h3>
+    <div class="grid">
+        <div class="grid_col grid_col-start-sm-2 grid_col-end-sm-11">Starts on Column from Tablet Up / .grid_col .grid_col--Start--sm-2 .grid_col--End--sm-10</div>
+    </div>
+</section>
+<section>
+    <h2>Order</h2>
+    <h3>Change Column Order</h3>
+    <p>Will Move the first column to Last on Tablet Up Tablet Up<br/>.grid_col .grid_col-4 .grid_col-sm-last</p>
+    <div class="grid">
+        <div class="grid_col grid_col-sm-4 grid_col-sm-last">Column First Column on Mobile Ordered to Last on Tablet Up</div>
+        <div class="grid_col grid_col-sm-4">Column Second</div>
+        <div class="grid_col grid_col-sm-4">Column Third</div>
+    </div>
+</section>
+</div>

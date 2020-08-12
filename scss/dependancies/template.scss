@@ -1,0 +1,41 @@
+// Spacing 
+$spacingXXS: .25rem; //4px
+$spacingXS: .5rem; //8px
+$spacingS: .875rem; //14px
+$spacing: 1.5rem; //24px
+$spacingL: 2rem; //32px
+$spacingXL: 2.25rem; //36px
+$spacingXXL: 3.25rem; //52px
+//Grid Spacing
+$gridGap: $spacing; //24px
+$smallGridGap: $spacingS; //24px
+
+// MDS Media Query Sizes
+$mqxs:575px; //36rem
+$mqsm:768px; //48rem
+$mqmd:1024px; //64rem
+$mqlg:1200px; //75rem
+$mqxl:1440px; //90rem
+$mqxxl:2000px; //90rem
+
+$breakpoints: (
+  xs: $mqxs, //36rem
+  sm: $mqsm, //48rem
+  md: $mqmd, //64rem
+  lg: $mqlg, //75rem
+  xl: $mqxl, //90rem
+  xxl: $mqxxl //125rem
+);
+$sizes: xs, sm, md, lg, xl, xxl;
+
+$mq-xs: 576px; $mq-sm: 768px; $mq-md: 1024px; $mq-lg: 1366px;
+
+$aligns: auto, normal, stretch, center, start, end, self-start, self-end, baseline, first-baseline, last-baseline;
+
+// Border Radius
+$radiusXS: .5rem; //14px Based Radius
+$radiusS: .6rem; //14px Based Radius
+$radius: .875rem; //14px Based Radius
+$radiusL: 3.125rem; //50px
+$radiusXL: 15.875rem; //254px
+$radiusXXL: 100rem; //1600px

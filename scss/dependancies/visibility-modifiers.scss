@@ -1,0 +1,45 @@
+///Visibility Modifiers
+
+//Hide on Mobile Up
+
+.mds-hide {
+    visibility: hidden;
+    display: none;
+}
+//$mqxs:575px; //36rem
+//$mqsm:768px; //48rem
+//$mqmd:1024px; //64rem
+//$mqlg:1200px; //75rem
+//$mqxl:1440px; //90rem
+//$mqxxl:2000px; //90rem
+
+@media screen and (max-width: $mqxs) {
+    .show-for-xs-up {
+        display: none !important;
+    }
+}
+@media screen and (max-width: $mqsm) {
+    .show-for-sm-up {
+        display: none !important;
+    }
+}
+@media screen and (max-width: $mqmd) {
+    .show-for-md-up {
+        display: none !important;
+    }
+}
+@media screen and (max-width: $mqlg) {
+    .show-for-lg-up {
+        display: none !important;
+    }
+}
+@media screen and (max-width: $mqxl) {
+    .show-for-xl-up {
+        display: none !important;
+    }
+}
+@media screen and (max-width: $mqxxl) {
+    .show-for-xxl-up {
+        display: none !important;
+    }
+}
