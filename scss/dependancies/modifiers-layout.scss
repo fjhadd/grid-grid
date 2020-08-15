@@ -1,0 +1,120 @@
+//Layout Modifiers
+$sides: -top, -right, -bottom, -left;
+
+.mds-no-padding {
+    padding: 0 !important;
+}
+.mds-no-margin {
+    margin: 0 !important;
+}
+//Padding
+.mds-paddingXS  {padding: $spacingXS;}
+.mds-paddingS   {padding: $spacingS;}
+.mds-padding    {padding: $spacing;}
+.mds-paddingL   {padding: $spacingL;}
+.mds-paddingXL  {padding: $spacingXL;}
+.mds-paddingXXL {padding: $spacingXXL;}
+
+//Maring
+.mds-marginXS   {margin: $spacingXS;}
+.mds-marginS    {margin: $spacingS;}
+.mds-margin     {margin: $spacing;}
+.mds-marginL    {margin: $spacingL;}
+.mds-marginXL   {margin: $spacingXL;}
+.mds-marginXXL  {margin: $spacingXXL;}
+
+//@each $sides
+@each $side in $sides { 
+    .mds-no-margin#{$side} {
+        margin#{$side}: 0 !important;
+    }
+    .mds-no-padding#{$side} {
+        padding#{$side}: 0 !important;
+    }
+    //Padding Size for Side
+    .mds-paddingXS#{$side}  {padding#{$side}: $spacingXS;}
+    .mds-paddingS#{$side}   {padding#{$side}: $spacingS;}
+    .mds-padding#{$side}    {padding#{$side}: $spacing;}
+    .mds-paddingL#{$side}   {padding#{$side}: $spacingL;}
+    .mds-paddingXL#{$side}  {padding#{$side}: $spacingXL;}
+    .mds-paddingXXL#{$side} {padding#{$side}: $spacingXXL;}
+
+    //Margin Size for Side
+    .mds-marginXS#{$side}   {margin#{$side}: $spacingXS;}
+    .mds-marginS#{$side}    {margin#{$side}: $spacingS;}
+    .mds-margin#{$side}     {margin#{$side}: $spacing;}
+    .mds-marginL#{$side}    {margin#{$side}: $spacingL;}
+    .mds-marginXL#{$side}   {margin#{$side}: $spacingXL;}
+    .mds-marginXXL#{$side}  {margin#{$side}: $spacingXXL;}
+}
+@each $size in $sizes { 
+    @include mq($size) {
+        .mds-padding-for-#{$size}    {padding: $spacing;}
+        .mds-margin-for-#{$size}    {margin: $spacing;}
+        @each $side in $sides { 
+            .mds-no-margin#{$side}-for-#{$size} {
+                margin#{$side}: 0 !important;
+            }
+            .mds-no-padding#{$side}-for-#{$size} {
+                padding#{$side}: 0 !important;
+            }
+            
+            //Padding Size for Side
+            .mds-paddingXS#{$side}-for-#{$size}  {padding#{$side}: $spacingXS;}
+            .mds-paddingS#{$side}-for-#{$size}   {padding#{$side}: $spacingS;}
+            .mds-paddingL#{$side}-for-#{$size}   {padding#{$side}: $spacingL;}
+            .mds-paddingXL#{$side}-for-#{$size}  {padding#{$side}: $spacingXL;}
+            .mds-paddingXXL#{$side}-for-#{$size} {padding#{$side}: $spacingXXL;}
+
+            //Margin Size for Side
+            .mds-marginXS#{$side}-for-#{$size}   {margin#{$side}: $spacingXS;}
+            .mds-marginS#{$side}-for-#{$size}    {margin#{$side}: $spacingS;}
+            .mds-margin#{$side}-for-#{$size}     {margin#{$side}: $spacing;}
+            .mds-marginL#{$side}-for-#{$size}    {margin#{$side}: $spacingL;}
+            .mds-marginXL#{$side}-for-#{$size}   {margin#{$side}: $spacingXL;}
+            .mds-marginXXL#{$side}-for-#{$size}  {margin#{$side}: $spacingXXL;}
+        }
+    }
+}
+
+//Radius
+$radiusSides: -top-left, -top-right, -bottom-right, -bottom-left;
+
+.mds-radiusXS{
+    border-radius: $radiusXS;
+}
+.mds-radiusS{
+    border-radius: $radiusS;
+}
+.mds-radius{
+    border-radius: $radius;
+}
+.mds-radiusL{
+    border-radius: $radiusL;
+}
+.mds-radiusXL{
+    border-radius: $radiusXL;
+}
+.mds-radiusXXL{
+    border-radius: $radiusXXL;
+}
+@each $radiusSide in $radiusSides {
+    .mds-radiusXS#{$radiusSide}{
+        border#{$radiusSide}-radius: $radiusXS;
+    }
+    .mds-radiusS#{$radiusSide}{
+        border#{$radiusSide}-radius: $radiusS;
+    }
+    .mds-radius#{$radiusSide}{
+        border#{$radiusSide}-radius: $radius;
+    }
+    .mds-radiusL#{$radiusSide}{
+        border#{$radiusSide}-radius: $radiusL;
+    }
+    .mds-radiusXL#{$radiusSide}{
+        border#{$radiusSide}-radius: $radiusXL;
+    }
+    .mds-radiusXXL#{$radiusSide}{
+        border#{$radiusSide}-radius: $radiusXXL;
+    }
+}

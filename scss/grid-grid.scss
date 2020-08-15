@@ -1,7 +1,7 @@
 @import 'dependancies/template'; 
 @import 'dependancies/mixins';
-@import 'dependancies/layout-modifiers';
-@import 'dependancies/visibility-modifiers'; 
+@import 'dependancies/modifiers-layout';
+@import 'dependancies/modifiers-visibility'; 
 
 .grid {
     $grid: &;
